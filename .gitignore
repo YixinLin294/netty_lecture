@@ -6,6 +6,7 @@ HELP.md
 .gradle
 gradle
 /src/main/resources/config/application-local.properties
+out
 
 
 ### STS ###
