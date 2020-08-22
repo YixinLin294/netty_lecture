@@ -6,7 +6,7 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
-public class WebSocketClient {
+public class SocketClient {
 
     public static void main(String[] args) throws InterruptedException {
         EventLoopGroup eventLoopGroup = new NioEventLoopGroup();
@@ -14,7 +14,7 @@ public class WebSocketClient {
         try {
             Bootstrap bootstrap = new Bootstrap();
             bootstrap.group(eventLoopGroup).channel(NioSocketChannel.class)
-                    .handler(new WebSocketClientInitializer());
+                    .handler(new SocketClientInitializer());
 
             ChannelFuture channelFuture = bootstrap.connect("localhost", 7777).sync();
             channelFuture.channel().closeFuture().sync();
