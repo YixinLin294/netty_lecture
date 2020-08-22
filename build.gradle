@@ -16,5 +16,9 @@ repositories {
 }
 
 dependencies {
-    implementation 'io.netty:netty-all:4.1.51.Final'
+    compile (
+        'io.netty:netty-all:4.1.51.Final',
+        'com.google.protobuf:protobuf-java:4.0.0-rc-2',
+        'com.google.protobuf:protobuf-java-util:4.0.0-rc-2'
+    )
 }

@@ -1,0 +1,14 @@
+syntax = "proto2";
+
+package com.example.protobuf;
+
+option  optimize_for = SPEED;
+option java_package = "com.example.netty_lecture.sixthdemo";
+option java_outer_classname = "MyDataInfo";
+
+message Person {
+
+  optional string name = 1;
+  optional int32 age = 2;
+  optional string address = 3;
+}
