@@ -23,3 +23,8 @@ dependencies {
             'org.apache.thrift:libthrift:0.13.0'
     )
 }
+
+wrapper {
+    gradleVersion = '5.4.0'
+    distributionType = 'BIN'
+}
