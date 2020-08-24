@@ -10,7 +10,7 @@ import java.util.Iterator;
 
 public class GrpcClient {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ManagedChannel managedChannel = ManagedChannelBuilder.forAddress("localhost", 8899).usePlaintext().build();
         StudentServiceGrpc.StudentServiceBlockingStub blockingStub = StudentServiceGrpc.newBlockingStub(managedChannel);
         StudentServiceGrpc.StudentServiceStub stub = StudentServiceGrpc.newStub(managedChannel);
@@ -57,10 +57,13 @@ public class GrpcClient {
         StreamObserver<StudentRequest> studentRequestStreamObserver = stub.getStudentsWrapperByAge(studentResponseListStreamObserver);
 
         studentRequestStreamObserver.onNext(StudentRequest.newBuilder().setAge(20).build());
+        Thread.sleep(1000);
         studentRequestStreamObserver.onNext(StudentRequest.newBuilder().setAge(30).build());
+        Thread.sleep(1000);
         studentRequestStreamObserver.onNext(StudentRequest.newBuilder().setAge(40).build());
+        Thread.sleep(1000);
         studentRequestStreamObserver.onNext(StudentRequest.newBuilder().setAge(50).build());
-
+        Thread.sleep(1000);
         studentRequestStreamObserver.onCompleted();
 
         System.out.println("------------------------");

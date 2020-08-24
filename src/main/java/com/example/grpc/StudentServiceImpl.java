@@ -20,9 +20,29 @@ public class StudentServiceImpl extends StudentServiceGrpc.StudentServiceImplBas
         System.out.println("接收到客户端信息: " + request.getAge());
 
         responseObserver.onNext(StudentResponse.newBuilder().setName("张三").setAge(20).setCity("北京").build());
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         responseObserver.onNext(StudentResponse.newBuilder().setName("李四").setAge(30).setCity("上海").build());
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         responseObserver.onNext(StudentResponse.newBuilder().setName("王五").setAge(40).setCity("广州").build());
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         responseObserver.onNext(StudentResponse.newBuilder().setName("赵六").setAge(50).setCity("深圳").build());
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         responseObserver.onCompleted();
     }
@@ -59,6 +79,10 @@ public class StudentServiceImpl extends StudentServiceGrpc.StudentServiceImplBas
             public void onNext(StreamRequest value) {
                 System.out.println(value.getRequestInof());
 
+                responseObserver.onNext(StreamResponse.newBuilder().setResonseInfo(UUID.randomUUID().toString()).build());
+                responseObserver.onNext(StreamResponse.newBuilder().setResonseInfo(UUID.randomUUID().toString()).build());
+                responseObserver.onNext(StreamResponse.newBuilder().setResonseInfo(UUID.randomUUID().toString()).build());
+                responseObserver.onNext(StreamResponse.newBuilder().setResonseInfo(UUID.randomUUID().toString()).build());
                 responseObserver.onNext(StreamResponse.newBuilder().setResonseInfo(UUID.randomUUID().toString()).build());
             }
 
