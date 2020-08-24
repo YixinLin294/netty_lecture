@@ -34,6 +34,11 @@ public final class StudentProto {
   static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_example_proto_StudentResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_example_proto_StudentResponseList_descriptor;
+  static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_example_proto_StudentResponseList_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -47,13 +52,18 @@ public final class StudentProto {
       "Request\022\020\n\010username\030\001 \001(\t\"\036\n\nMyResponse\022" +
       "\020\n\010realname\030\002 \001(\t\"\035\n\016StudentRequest\022\013\n\003a" +
       "ge\030\001 \001(\005\":\n\017StudentResponse\022\014\n\004name\030\001 \001(" +
-      "\t\022\013\n\003age\030\002 \001(\005\022\014\n\004city\030\003 \001(\t2\307\001\n\016Student" +
-      "Service\022V\n\025GetRealNameByUsername\022\034.com.e" +
-      "xample.proto.MyRequest\032\035.com.example.pro" +
-      "to.MyResponse\"\000\022]\n\020GetStudentsByAge\022!.co" +
-      "m.example.proto.StudentRequest\032\".com.exa" +
-      "mple.proto.StudentResponse\"\0000\001B#\n\021com.ex" +
-      "ample.protoB\014StudentProtoP\001b\006proto3"
+      "\t\022\013\n\003age\030\002 \001(\005\022\014\n\004city\030\003 \001(\t\"R\n\023StudentR" +
+      "esponseList\022;\n\017studentResponse\030\001 \003(\0132\".c" +
+      "om.example.proto.StudentResponse2\261\002\n\016Stu" +
+      "dentService\022V\n\025GetRealNameByUsername\022\034.c" +
+      "om.example.proto.MyRequest\032\035.com.example" +
+      ".proto.MyResponse\"\000\022]\n\020GetStudentsByAge\022" +
+      "!.com.example.proto.StudentRequest\032\".com" +
+      ".example.proto.StudentResponse\"\0000\001\022h\n\027Ge" +
+      "tStudentsWrapperByAge\022!.com.example.prot" +
+      "o.StudentRequest\032&.com.example.proto.Stu" +
+      "dentResponseList\"\000(\001B#\n\021com.example.prot" +
+      "oB\014StudentProtoP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -83,6 +93,12 @@ public final class StudentProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_example_proto_StudentResponse_descriptor,
         new String[] { "Name", "Age", "City", });
+    internal_static_com_example_proto_StudentResponseList_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_com_example_proto_StudentResponseList_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_example_proto_StudentResponseList_descriptor,
+        new String[] { "StudentResponse", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
