@@ -11,7 +11,7 @@ public interface StreamRequestOrBuilder extends
    * <code>string request_inof = 1;</code>
    * @return The requestInof.
    */
-  String getRequestInof();
+  java.lang.String getRequestInof();
   /**
    * <code>string request_inof = 1;</code>
    * @return The bytes for requestInof.

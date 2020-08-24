@@ -11,7 +11,7 @@ public interface StreamResponseOrBuilder extends
    * <code>string resonse_info = 1;</code>
    * @return The resonseInfo.
    */
-  String getResonseInfo();
+  java.lang.String getResonseInfo();
   /**
    * <code>string resonse_info = 1;</code>
    * @return The bytes for resonseInfo.
