@@ -1,0 +1,67 @@
+import builtins
+import os
+
+to_be_monitered = ['from_file1.txt', 'from_file2.txt']
+
+# callback function (called when file closes)
+def upload(content_file):
+    # check for required file
+    if content_file in to_be_monitered:
+        # copy the contents
+        with builtins.open(content_file, 'r') as ff:
+            with builtins.open(remote_file, 'a') as tf:
+                # some logic for writing only new contents can be used here
+                tf.write('\n'+ff.read())
+
+
+
+class open(object):
+    def __init__(self, path, mode):
+        self.path = path
+        self.mode = mode
+
+    # called when context manager invokes
+    def __enter__(self):
+        self.file = builtins.open(self.path, self.mode)
+        return  self.file
+
+    # called when context manager returns
+    def __exit__(self, *args):
+        self.file.close()
+        # after closing calling upload()
+        upload(self.path)
+        return True
+
+    # called when normal non context manager invokes the object
+    def __getattr__(self, item):
+        self.file = builtins.open(self.path, self.mode)
+        # if close call upload()
+        if item == 'close':
+            upload(self.path)
+        return getattr(self.file, item)
+
+
+if __name__ == '__main__':
+
+    remote_file  = 'to_file.txt'
+    local_file1  = 'from_file1.txt'
+    local_file2  = 'from_file2.txt'
+
+    # just checks and creates remote file no related to actual problem
+    if not os.path.isfile(remote_file):
+        f = builtins.open(remote_file, 'w')
+        f.close()
+
+    # DRIVER CODE
+    # writing with context manger
+    with open(local_file1, 'w') as f:
+        f.write('some text written with context manager to file1')
+
+    # writing without context manger
+    f = open(local_file2, 'w')
+    f.write('some text written without using context manager to file2')
+    f.close()
+
+    # reading file
+    with open(remote_file, 'r') as f:
+        print('remote file contains:\n', f.read())
