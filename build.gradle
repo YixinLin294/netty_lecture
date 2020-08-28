@@ -65,7 +65,7 @@ protobuf {
 
 
 wrapper {
-    gradleVersion = '5.4.0'
-    distributionType = 'BIN'
+    gradleVersion = '5.2.1'
+    distributionType = 'ALL'
 }
 
